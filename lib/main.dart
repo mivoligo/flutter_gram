@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'config/custom_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      onGenerateRoute: CustomRouter.onGenerateRoute,
+      initialRoute: '/',
     );
   }
 }
