@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "435644265507",
+    "project_id": "flutter-gram-c548f",
+    "storage_bucket": "flutter-gram-c548f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435644265507:android:c68ba7ff372d5546dced96",
+        "android_client_info": {
+          "package_name": "org.mivoligo.flutter_gram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435644265507-mm2740j7dtlu8jqmo5sm26rdp607hj57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzUbzgtPXbEcQQKZjYpE09Yo4ajy_T2s4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435644265507-mm2740j7dtlu8jqmo5sm26rdp607hj57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
