@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'config/custom_router.dart';
+import 'screens/screens.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,13 +27,13 @@ class MyApp extends StatelessWidget {
             headline6: TextStyle(
               color: Colors.black,
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
       ),
       onGenerateRoute: CustomRouter.onGenerateRoute,
-      initialRoute: '/',
+      initialRoute: SplashScreen.routeName,
     );
   }
 }
