@@ -69,11 +69,10 @@ class LoginScreen extends StatelessWidget {
                             keyboardType: TextInputType.emailAddress,
                             onChanged: (value) =>
                                 context.read<LoginCubit>().emailChanged(value),
-                            validator: (value) {
-                              value != null && !value.contains('@')
-                                  ? 'Please provide valid email'
-                                  : null;
-                            },
+                            validator: (value) =>
+                                value != null && !value.contains('@')
+                                    ? 'Please provide valid email'
+                                    : null,
                           ),
                           TextFormField(
                             decoration: InputDecoration(hintText: 'Password'),
@@ -81,11 +80,10 @@ class LoginScreen extends StatelessWidget {
                             onChanged: (value) => context
                                 .read<LoginCubit>()
                                 .passwordChanged(value),
-                            validator: (value) {
-                              value != null && value.length < 6
-                                  ? 'Please provide longer password'
-                                  : null;
-                            },
+                            validator: (value) =>
+                                value != null && value.length < 6
+                                    ? 'Please provide longer password'
+                                    : null,
                           ),
                           ElevatedButton(
                             onPressed: () => _submitForm(

@@ -22,7 +22,7 @@ class LoginState extends Equatable {
       email: '',
       password: '',
       status: LoginStatus.initial,
-      failure: Failure(),
+      failure: const Failure(),
     );
   }
 
