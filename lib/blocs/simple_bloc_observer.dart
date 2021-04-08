@@ -14,6 +14,12 @@ class SimpleBlocObserver extends BlocObserver {
   }
 
   @override
+  void onChange(BlocBase bloc, Change change) {
+    print(change);
+    super.onChange(bloc, change);
+  }
+
+  @override
   Future<void> onError(
       BlocBase bloc, Object error, StackTrace stackTrace) async {
     print(error);
