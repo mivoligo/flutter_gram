@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../repositories/repositories.dart';
+import '../../widgets/widgets.dart';
 import 'cubit/signup_cubit.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -31,9 +33,8 @@ class SignupScreen extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return AlertDialog(
-                    title: Text('Error'),
-                    content: Text(state.failure.message!),
+                  return ErrorDialog(
+                    content: state.failure.message!,
                   );
                 },
               );
