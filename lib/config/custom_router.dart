@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gram/screens/signup/signup_screen.dart';
 import '../screens/screens.dart';
 
 class CustomRouter {
@@ -11,6 +12,8 @@ class CustomRouter {
         );
       case SplashScreen.routeName:
         return SplashScreen.route();
+      case SignupScreen.routeName:
+        return SignupScreen.route();
       case LoginScreen.routeName:
         return LoginScreen.route();
       case NavScreen.routeName:

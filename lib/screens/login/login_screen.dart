@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gram/screens/screens.dart';
 import '../../repositories/repositories.dart';
 import 'cubit/login_cubit.dart';
 
@@ -94,7 +95,8 @@ class LoginScreen extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              print('sign in');
+                              Navigator.of(context)
+                                  .pushNamed(SignupScreen.routeName);
                             },
                             child: Text('No account? Sign up'),
                             style: ElevatedButton.styleFrom(
