@@ -17,6 +17,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // AuthRepository().logOut();
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<AuthRepository>(

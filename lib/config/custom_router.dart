@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gram/screens/signup/signup_screen.dart';
 import '../screens/screens.dart';
 
 class CustomRouter {
