@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../config/custom_router.dart';
 import '../../../enums/bottom_nav_item.dart';
 import '../../screens.dart';
 
@@ -24,6 +25,7 @@ class TabNavigator extends StatelessWidget {
           )
         ];
       },
+      onGenerateRoute: CustomRouter.onGenerateNestedRoute,
     );
   }
 
