@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../enums/enums.dart';
+import 'widgets/widgets.dart';
 
 class NavScreen extends StatelessWidget {
   static const routeName = '/nav_screen';
@@ -26,6 +27,11 @@ class NavScreen extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         body: Text('Nav screen'),
+        bottomNavigationBar: BottomNavBar(
+          items: items,
+          selectedItem: BottomNavItem.feed,
+          onTap: (index) {},
+        ),
       ),
     );
   }
