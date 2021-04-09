@@ -16,16 +16,25 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.white,
+      selectedItemColor: Theme.of(context).primaryColor,
+      unselectedItemColor: Colors.grey,
+      currentIndex: BottomNavItem.values.indexOf(selectedItem),
+      onTap: onTap,
       items: items
           .map(
             (item, icon) => MapEntry(
               item.toString(),
               BottomNavigationBarItem(
-                  label: '',
-                  icon: Icon(
-                    icon,
-                    size: 30.0,
-                  )),
+                label: '',
+                icon: Icon(
+                  icon,
+                  size: 30.0,
+                ),
+              ),
             ),
           )
           .values
