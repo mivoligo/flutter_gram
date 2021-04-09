@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../enums/enums.dart';
 
 class NavScreen extends StatelessWidget {
   static const routeName = '/nav_screen';
@@ -11,10 +12,21 @@ class NavScreen extends StatelessWidget {
     );
   }
 
+  final Map<BottomNavItem, IconData> items = const {
+    BottomNavItem.feed: Icons.home,
+    BottomNavItem.search: Icons.search,
+    BottomNavItem.create: Icons.add,
+    BottomNavItem.notifications: Icons.favorite_border,
+    BottomNavItem.profile: Icons.account_circle,
+  };
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('Nav screen'),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: Text('Nav screen'),
+      ),
     );
   }
 }
