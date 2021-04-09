@@ -30,10 +30,7 @@ class BottomNavBar extends StatelessWidget {
               item.toString(),
               BottomNavigationBarItem(
                 label: '',
-                icon: Icon(
-                  icon,
-                  size: 30.0,
-                ),
+                icon: Icon(icon, size: 30.0),
               ),
             ),
           )
