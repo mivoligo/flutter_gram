@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gram/screens/profile/widgets/widgets.dart';
+
 import '../../blocs/blocs.dart';
 import '../../widgets/widgets.dart';
 import 'bloc/profile_bloc.dart';
+import 'widgets/widgets.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const String routeName = '/profile';
@@ -54,7 +55,17 @@ class ProfileScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                    )
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 30.0,
+                      ),
+                      child: ProfileInfo(
+                        username: state.user.username,
+                        bio: state.user.bio,
+                      ),
+                    ),
                   ],
                 ),
               ),
