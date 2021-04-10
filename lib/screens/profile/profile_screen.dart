@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../widgets/error_dialog.dart';
+import '../../blocs/blocs.dart';
+import '../../widgets/widgets.dart';
 import 'bloc/profile_bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -19,8 +20,37 @@ class ProfileScreen extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-          body: Center(
-            child: Text('profile'),
+          appBar: AppBar(
+            title: Text(state.user.username),
+            actions: [
+              if (state.isCurrentUser)
+                IconButton(
+                  onPressed: () =>
+                      context.read<AuthBloc>().add(AuthLogoutRequested()),
+                  icon: const Icon(Icons.logout),
+                ),
+            ],
+          ),
+          body: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 0),
+                      child: Row(
+                        children: [
+                          UserProfileImage(
+                            radius: 40.0,
+                            profileImageUrl: state.user.profileImageUrl,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         );
       },
