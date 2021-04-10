@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'profile_button.dart';
+
 class ProfileStats extends StatelessWidget {
   final bool isCurrentUser;
   final bool isFollowing;
@@ -30,14 +32,16 @@ class ProfileStats extends StatelessWidget {
               _Stats(count: following, label: 'following'),
             ],
           ),
-          const SizedBox(height: 8.0),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          //   child: ProfileButton(
-          //     isCurrentUser: isCurrentUser,
-          //     isFollowing: isFollowing,
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 8.0,
+              horizontal: 24.0,
+            ),
+            child: ProfileButton(
+              isCurrentUser: isCurrentUser,
+              isFollowing: isFollowing,
+            ),
+          ),
         ],
       ),
     );
