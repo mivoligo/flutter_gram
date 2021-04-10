@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gram/screens/profile/widgets/widgets.dart';
 import '../../blocs/blocs.dart';
 import '../../widgets/widgets.dart';
 import 'bloc/profile_bloc.dart';
@@ -44,6 +45,13 @@ class ProfileScreen extends StatelessWidget {
                             radius: 40.0,
                             profileImageUrl: state.user.profileImageUrl,
                           ),
+                          ProfileStats(
+                            isCurrentUser: state.isCurrentUser,
+                            isFollowing: state.isFollowing,
+                            followers: 0,
+                            following: 0,
+                            posts: 0,
+                          )
                         ],
                       ),
                     )
