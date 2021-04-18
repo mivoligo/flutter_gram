@@ -1,4 +1,5 @@
 export 'create_posts/create_posts.dart';
+export 'edit_profile/edit_profile_screen.dart';
 export 'feed/feed_screen.dart';
 export 'login/login_screen.dart';
 export 'nav/nav_screen.dart';
