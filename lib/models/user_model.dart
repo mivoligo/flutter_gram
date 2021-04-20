@@ -42,7 +42,7 @@ class User extends Equatable {
     return User(
       id: id ?? this.id,
       username: username ?? this.username,
-      email: email ?? this.username,
+      email: email ?? this.email,
       profileImageUrl: profileImageUrl ?? this.profileImageUrl,
       followers: followers ?? this.followers,
       following: following ?? this.following,
