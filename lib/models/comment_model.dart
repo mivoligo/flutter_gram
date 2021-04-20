@@ -5,7 +5,7 @@ import '../config/paths.dart';
 import 'user_model.dart';
 
 class Comment extends Equatable {
-  Comment({
+  const Comment({
     this.id,
     required this.postId,
     required this.author,
