@@ -64,6 +64,8 @@ class EditProfileScreen extends StatelessWidget {
             return SingleChildScrollView(
               child: Column(
                 children: [
+                  if (state.status == EditProfileStatus.submitting)
+                    const LinearProgressIndicator(),
                   GestureDetector(
                     onTap: () => _selectProfileImage(context),
                     child: Padding(
