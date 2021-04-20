@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../models/models.dart';
 import '../../repositories/repositories.dart';
@@ -126,7 +129,15 @@ class EditProfileScreen extends StatelessWidget {
     );
   }
 
-  void _selectProfileImage(BuildContext context) {}
+  Future<void> _selectProfileImage(BuildContext context) async {
+    final pickedFile =
+        await ImagePicker().getImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      context
+          .read<EditProfileCubit>()
+          .profileImageChanged(File(pickedFile.path));
+    }
+  }
 
   void _submitForm(BuildContext context, bool isSubmitting) {
     if (_formKey.currentState != null &&
