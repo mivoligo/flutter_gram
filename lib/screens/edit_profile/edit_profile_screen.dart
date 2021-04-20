@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:image_cropper/image_cropper.dart';
 
+import '../../helpers/helpers.dart';
 import '../../models/models.dart';
 import '../../repositories/repositories.dart';
 import '../../widgets/error_dialog.dart';
@@ -130,8 +131,8 @@ class EditProfileScreen extends StatelessWidget {
   }
 
   Future<void> _selectProfileImage(BuildContext context) async {
-    final pickedFile =
-        await ImagePicker().getImage(source: ImageSource.gallery);
+    final pickedFile = await ImageHelper.pickImageFromGallery(
+        context: context, cropStyle: CropStyle.circle, title: 'Profile image');
     if (pickedFile != null) {
       context
           .read<EditProfileCubit>()
