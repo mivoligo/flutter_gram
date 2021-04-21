@@ -5,6 +5,7 @@ import '../../../blocs/blocs.dart';
 import '../../../config/custom_router.dart';
 import '../../../enums/bottom_nav_item.dart';
 import '../../../repositories/repositories.dart';
+import '../../create_posts/cubit/create_post_cubit.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../screens.dart';
 
@@ -45,7 +46,14 @@ class TabNavigator extends StatelessWidget {
       case BottomNavItem.search:
         return SearchScreen();
       case BottomNavItem.create:
-        return CreatePostsScreen();
+        return BlocProvider<CreatePostCubit>(
+          create: (context) => CreatePostCubit(
+            postRepository: context.read<PostRepository>(),
+            storageRepository: context.read<StorageRepository>(),
+            authBloc: context.read<AuthBloc>(),
+          ),
+          child: CreatePostsScreen(),
+        );
       case BottomNavItem.notifications:
         return NotificationsScreen();
       case BottomNavItem.profile:
