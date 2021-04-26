@@ -3,12 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/blocs.dart';
+import '../../repositories/repositories.dart';
 import '../../widgets/widgets.dart';
 import 'bloc/profile_bloc.dart';
 import 'widgets/widgets.dart';
 
+class ProfileScreenArgs {
+  const ProfileScreenArgs({required this.userId});
+
+  final String userId;
+}
+
 class ProfileScreen extends StatefulWidget {
   static const String routeName = '/profile';
+
+  static Route route({required ProfileScreenArgs args}) {
+    return MaterialPageRoute(
+      builder: (context) => BlocProvider(
+        create: (_) => ProfileBloc(
+          userRepository: context.read<UserRepository>(),
+          postRepository: context.read<PostRepository>(),
+          authBloc: context.read<AuthBloc>(),
+        )..add(ProfileLoadUser(userId: args.userId)),
+        child: ProfileScreen(),
+      ),
+    );
+  }
 
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -150,10 +170,9 @@ class _ProfileScreenState extends State<ProfileScreen>
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
                           final post = state.posts[index];
-                          return Container(
-                            color: Colors.red,
-                            width: double.infinity,
-                            height: 50,
+                          return PostView(
+                            post: post!,
+                            isLiked: false,
                           );
                         },
                         childCount: state.posts.length,
