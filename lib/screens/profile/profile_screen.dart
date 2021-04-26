@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,8 +7,28 @@ import '../../widgets/widgets.dart';
 import 'bloc/profile_bloc.dart';
 import 'widgets/widgets.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   static const String routeName = '/profile';
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +72,7 @@ class ProfileScreen extends StatelessWidget {
                             isFollowing: state.isFollowing,
                             followers: 0,
                             following: 0,
-                            posts: 0,
+                            posts: state.posts.length,
                           )
                         ],
                       ),
@@ -69,6 +90,58 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              SliverToBoxAdapter(
+                child: TabBar(
+                  controller: _tabController,
+                  labelColor: Theme.of(context).primaryColor,
+                  unselectedLabelColor: Colors.grey,
+                  tabs: [
+                    Tab(
+                      icon: Icon(Icons.grid_on, size: 28.0),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.list, size: 28.0),
+                    ),
+                  ],
+                  indicatorWeight: 3.0,
+                  onTap: (i) => context
+                      .read<ProfileBloc>()
+                      .add(ProfileToggleGridView(isGridView: i == 0)),
+                ),
+              ),
+              state.isGridView
+                  ? SliverGrid(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          final post = state.posts[index];
+                          return GestureDetector(
+                            onTap: () {},
+                            child: CachedNetworkImage(
+                              imageUrl: post!.imageUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          );
+                        },
+                        childCount: state.posts.length,
+                      ),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 2.0,
+                        crossAxisSpacing: 2.0,
+                      ))
+                  : SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          final post = state.posts[index];
+                          return Container(
+                            color: Colors.red,
+                            width: double.infinity,
+                            height: 50,
+                          );
+                        },
+                        childCount: state.posts.length,
+                      ),
+                    ),
             ],
           ),
         );
