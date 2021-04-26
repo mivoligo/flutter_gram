@@ -54,7 +54,24 @@ class _ProfileScreenState extends State<ProfileScreen>
                 ),
             ],
           ),
-          body: CustomScrollView(
+          body: _buildBody(state),
+        );
+      },
+    );
+  }
+
+  Widget _buildBody(ProfileState state) {
+    switch (state.status) {
+      case ProfileStatus.loading:
+        return Center(child: CircularProgressIndicator());
+      default:
+        return RefreshIndicator(
+          onRefresh: () async {
+            context
+                .read<ProfileBloc>()
+                .add(ProfileLoadUser(userId: state.user.id));
+          },
+          child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
                 child: Column(
@@ -145,7 +162,6 @@ class _ProfileScreenState extends State<ProfileScreen>
             ],
           ),
         );
-      },
-    );
+    }
   }
 }
