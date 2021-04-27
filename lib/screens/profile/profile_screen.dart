@@ -107,8 +107,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                           ProfileStats(
                             isCurrentUser: state.isCurrentUser,
                             isFollowing: state.isFollowing,
-                            followers: 0,
-                            following: 0,
+                            followers: state.user.followers,
+                            following: state.user.following,
                             posts: state.posts.length,
                           )
                         ],

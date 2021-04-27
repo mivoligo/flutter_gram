@@ -2,6 +2,9 @@ part of 'profile_bloc.dart';
 
 abstract class ProfileEvent extends Equatable {
   const ProfileEvent();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class ProfileLoadUser extends ProfileEvent {
@@ -30,3 +33,7 @@ class ProfileUpdatePosts extends ProfileEvent {
   @override
   List<Object?> get props => [posts];
 }
+
+class ProfileFollowUser extends ProfileEvent {}
+
+class ProfileUnfollowUser extends ProfileEvent {}
