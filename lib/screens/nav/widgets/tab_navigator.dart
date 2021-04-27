@@ -8,6 +8,7 @@ import '../../../repositories/repositories.dart';
 import '../../create_posts/cubit/create_post_cubit.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../screens.dart';
+import '../../search/cubit/search_users_cubit.dart';
 
 class TabNavigator extends StatelessWidget {
   const TabNavigator({Key? key, required this.navigatorKey, required this.item})
@@ -44,7 +45,12 @@ class TabNavigator extends StatelessWidget {
       case BottomNavItem.feed:
         return FeedScreen();
       case BottomNavItem.search:
-        return SearchScreen();
+        return BlocProvider(
+          create: (context) => SearchUsersCubit(
+            userRepository: context.read<UserRepository>(),
+          ),
+          child: SearchScreen(),
+        );
       case BottomNavItem.create:
         return BlocProvider<CreatePostCubit>(
           create: (context) => CreatePostCubit(
