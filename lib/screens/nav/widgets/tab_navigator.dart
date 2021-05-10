@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gram/screens/feed/bloc/feed_bloc.dart';
 
 import '../../../blocs/blocs.dart';
 import '../../../config/custom_router.dart';
@@ -43,9 +44,15 @@ class TabNavigator extends StatelessWidget {
   Widget _getScreen(BuildContext context, BottomNavItem item) {
     switch (item) {
       case BottomNavItem.feed:
-        return FeedScreen();
+        return BlocProvider<FeedBloc>(
+          create: (context) => FeedBloc(
+            postRepository: context.read<PostRepository>(),
+            authBloc: context.read<AuthBloc>(),
+          )..add(FeedFetchPosts()),
+          child: FeedScreen(),
+        );
       case BottomNavItem.search:
-        return BlocProvider(
+        return BlocProvider<SearchUsersCubit>(
           create: (context) => SearchUsersCubit(
             userRepository: context.read<UserRepository>(),
           ),
