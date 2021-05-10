@@ -46,4 +46,18 @@ class PostRepository extends BasePostRepository {
         .snapshots()
         .map((snap) => snap.docs.map(Comment.fromDocument).toList());
   }
+
+  @override
+  Future<List<Post?>> getUserFeed({required String userId}) async {
+    final postsSnap = await _firebaseFirestore
+        .collection(Paths.feeds)
+        .doc(userId)
+        .collection(Paths.userFeed)
+        .orderBy('date', descending: true)
+        .get();
+    final posts = Future.wait(
+      postsSnap.docs.map(Post.fromDocument).toList(),
+    );
+    return posts;
+  }
 }
