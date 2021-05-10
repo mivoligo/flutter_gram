@@ -9,5 +9,5 @@ abstract class BasePostRepository {
 
   Stream<List<Future<Comment?>>> getPostComments({required String postId});
 
-  Future<List<Post?>> getUserFeed({required String userId});
+  Future<List<Post?>> getUserFeed({required String userId, String? lastPostId});
 }
