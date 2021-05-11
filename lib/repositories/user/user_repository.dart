@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../config/paths.dart';
+import '../../enums/enums.dart';
 import '../../models/models.dart';
 import '../repositories.dart';
 
@@ -49,11 +51,23 @@ class UserRepository extends BaseUserRepository {
         .collection(Paths.userFollowers)
         .doc(userId)
         .set({});
+
+    final notification = Notif(
+      type: NotifType.follow,
+      fromUser: User.empty.copyWith(id: userId),
+      date: DateTime.now(),
+    );
+
+    _firebaseFirestore
+        .collection(Paths.notifications)
+        .doc(followUserId)
+        .collection(Paths.userNotifications)
+        .add(notification.toDocument());
   }
 
   @override
   void unfollowUser({required String userId, required String unfollowUserId}) {
-    // Remove unffolowUser from user's userFollowing collection
+    // Remove unfollowUser from user's userFollowing collection
     _firebaseFirestore
         .collection(Paths.following)
         .doc(userId)
