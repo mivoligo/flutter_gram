@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import '../extensions/extensions.dart';
 import '../models/models.dart';
 import '../screens/profile/profile_screen.dart';
+import '../screens/screens.dart';
 import 'user_profile_image.dart';
 
 class PostView extends StatelessWidget {
@@ -72,7 +73,10 @@ class PostView extends StatelessWidget {
                   : const Icon(Icons.favorite_border),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushNamed(
+                CommentsScreen.routeName,
+                arguments: CommentsScreenArgs(post: post),
+              ),
               icon: const Icon(Icons.comment_outlined),
             )
           ],

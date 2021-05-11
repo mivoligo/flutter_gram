@@ -6,6 +6,7 @@ import '../../blocs/blocs.dart';
 import '../../cubits/cubits.dart';
 import '../../repositories/repositories.dart';
 import '../../widgets/widgets.dart';
+import '../screens.dart';
 import 'bloc/profile_bloc.dart';
 import 'widgets/widgets.dart';
 
@@ -156,7 +157,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                         (context, index) {
                           final post = state.posts[index];
                           return GestureDetector(
-                            onTap: () {},
+                            onTap: () => Navigator.of(context).pushNamed(
+                              CommentsScreen.routeName,
+                              arguments: CommentsScreenArgs(post: post!),
+                            ),
                             child: CachedNetworkImage(
                               imageUrl: post!.imageUrl,
                               fit: BoxFit.cover,
