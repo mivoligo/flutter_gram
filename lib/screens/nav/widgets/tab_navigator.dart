@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gram/screens/feed/bloc/feed_bloc.dart';
 
 import '../../../blocs/blocs.dart';
 import '../../../config/custom_router.dart';
 import '../../../enums/bottom_nav_item.dart';
 import '../../../repositories/repositories.dart';
 import '../../create_posts/cubit/create_post_cubit.dart';
+import '../../feed/bloc/feed_bloc.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../screens.dart';
 import '../../search/cubit/search_users_cubit.dart';
