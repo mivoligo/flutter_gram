@@ -45,7 +45,7 @@ class EditProfileScreen extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Edit Profile'),
+          title: const Text('Edit Profile'),
         ),
         body: BlocConsumer<EditProfileCubit, EditProfileState>(
           listener: (context, state) {
@@ -87,7 +87,7 @@ class EditProfileScreen extends StatelessWidget {
                         children: [
                           TextFormField(
                             initialValue: user.username,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'Username',
                             ),
                             onChanged: (value) => context
@@ -100,7 +100,7 @@ class EditProfileScreen extends StatelessWidget {
                           ),
                           TextFormField(
                             initialValue: user.bio,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'Bio',
                             ),
                             onChanged: (value) => context
@@ -114,7 +114,7 @@ class EditProfileScreen extends StatelessWidget {
                           ElevatedButton(
                               onPressed: () => _submitForm(context,
                                   state.status == EditProfileStatus.submitting),
-                              child: Text('Update'))
+                              child: const Text('Update'))
                         ],
                       ),
                     ),

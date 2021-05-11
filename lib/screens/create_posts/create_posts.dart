@@ -72,7 +72,8 @@ class CreatePostsScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextFormField(
-                            decoration: InputDecoration(hintText: 'Caption'),
+                            decoration:
+                                const InputDecoration(hintText: 'Caption'),
                             onChanged: (value) => context
                                 .read<CreatePostCubit>()
                                 .captionChanged(value),
@@ -87,7 +88,7 @@ class CreatePostsScreen extends StatelessWidget {
                                     state.postImage,
                                     state.status == CreatePostStatus.submitting,
                                   ),
-                              child: Text('Post Image'))
+                              child: const Text('Post Image'))
                         ],
                       ),
                     ),

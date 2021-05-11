@@ -48,9 +48,9 @@ class _FeedScreenState extends State<FeedScreen> {
           );
         } else if (state.status == FeedStatus.paginating) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               duration: Duration(seconds: 1),
-              content: const Text(
+              content: Text(
                 'Fetching More Posts...',
               ),
             ),
@@ -79,7 +79,7 @@ class _FeedScreenState extends State<FeedScreen> {
   Widget _buildBody(FeedState state) {
     switch (state.status) {
       case FeedStatus.loading:
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       default:
         return RefreshIndicator(
           onRefresh: () async {

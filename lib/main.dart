@@ -56,11 +56,11 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
             scaffoldBackgroundColor: Colors.grey[50],
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               brightness: Brightness.light,
               color: Colors.white,
-              iconTheme: const IconThemeData(color: Colors.black),
-              textTheme: const TextTheme(
+              iconTheme: IconThemeData(color: Colors.black),
+              textTheme: TextTheme(
                 headline6: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,

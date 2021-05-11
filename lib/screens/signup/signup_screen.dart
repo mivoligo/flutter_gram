@@ -55,8 +55,8 @@ class SignupScreen extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
                                 'Fluttergram',
                                 textAlign: TextAlign.center,
@@ -67,7 +67,8 @@ class SignupScreen extends StatelessWidget {
                               ),
                             ),
                             TextFormField(
-                              decoration: InputDecoration(hintText: 'Username'),
+                              decoration:
+                                  const InputDecoration(hintText: 'Username'),
                               keyboardType: TextInputType.emailAddress,
                               onChanged: (value) => context
                                   .read<SignupCubit>()
@@ -78,7 +79,8 @@ class SignupScreen extends StatelessWidget {
                                       : null,
                             ),
                             TextFormField(
-                              decoration: InputDecoration(hintText: 'Email'),
+                              decoration:
+                                  const InputDecoration(hintText: 'Email'),
                               keyboardType: TextInputType.emailAddress,
                               onChanged: (value) => context
                                   .read<SignupCubit>()
@@ -89,7 +91,8 @@ class SignupScreen extends StatelessWidget {
                                       : null,
                             ),
                             TextFormField(
-                              decoration: InputDecoration(hintText: 'Password'),
+                              decoration:
+                                  const InputDecoration(hintText: 'Password'),
                               obscureText: true,
                               onChanged: (value) => context
                                   .read<SignupCubit>()
@@ -104,11 +107,11 @@ class SignupScreen extends StatelessWidget {
                                 context,
                                 state.status == SignupStatus.submitting,
                               ),
-                              child: Text('Sign up'),
+                              child: const Text('Sign up'),
                             ),
                             ElevatedButton(
                               onPressed: () => Navigator.of(context).pop(),
-                              child: Text('Back to Log in'),
+                              child: const Text('Back to Log in'),
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.grey[200],
                                 onPrimary: Colors.black,

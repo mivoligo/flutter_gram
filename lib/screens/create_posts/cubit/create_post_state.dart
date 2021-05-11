@@ -19,7 +19,7 @@ class CreatePostState extends Equatable {
   List<Object?> get props => [postImage, caption, status, failure];
 
   factory CreatePostState.initial() {
-    return CreatePostState(
+    return const CreatePostState(
       postImage: null,
       caption: '',
       status: CreatePostStatus.initial,

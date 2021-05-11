@@ -10,7 +10,7 @@ class SearchUsersState extends Equatable {
   });
 
   factory SearchUsersState.initial() {
-    return SearchUsersState(
+    return const SearchUsersState(
       users: [],
       status: SearchStatus.initial,
       failure: Failure(),

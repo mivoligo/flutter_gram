@@ -26,7 +26,7 @@ class StorageRepository extends BaseStorageRepository {
     required String url,
     required File image,
   }) async {
-    var imageId = Uuid().v4();
+    var imageId = const Uuid().v4();
     // Update user profile image
     if (url.isNotEmpty) {
       final exp = RegExp(r'userProfile_(.*).jpg');
@@ -41,7 +41,7 @@ class StorageRepository extends BaseStorageRepository {
 
   @override
   Future<String> uploadPostImage({required File image}) async {
-    final imageId = Uuid().v4();
+    final imageId = const Uuid().v4();
     final downloadUrl = await _uploadImage(
       image: image,
       ref: 'images/posts/post_$imageId.jpg',

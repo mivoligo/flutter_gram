@@ -35,7 +35,7 @@ class _SearchScreenState extends State<SearchScreen> {
               border: InputBorder.none,
               hintText: 'Search Users',
               suffix: IconButton(
-                icon: Icon(Icons.clear),
+                icon: const Icon(Icons.clear),
                 onPressed: () {
                   context.read<SearchUsersCubit>().clearSearch();
                   _textController.clear();
@@ -57,7 +57,7 @@ class _SearchScreenState extends State<SearchScreen> {
               case SearchStatus.error:
                 return CenteredText(text: state.failure.message!);
               case SearchStatus.loading:
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               case SearchStatus.loaded:

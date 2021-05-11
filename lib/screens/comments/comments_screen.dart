@@ -110,12 +110,12 @@ class _CommentsScreenState extends State<CommentsScreen> {
                       child: TextField(
                         controller: _commentController,
                         textCapitalization: TextCapitalization.sentences,
-                        decoration: InputDecoration.collapsed(
+                        decoration: const InputDecoration.collapsed(
                             hintText: 'Write a comment...'),
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.send),
+                      icon: const Icon(Icons.send),
                       onPressed: () {
                         final content = _commentController.text.trim();
                         if (content.isNotEmpty) {

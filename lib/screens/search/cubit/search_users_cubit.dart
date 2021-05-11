@@ -21,7 +21,8 @@ class SearchUsersCubit extends Cubit<SearchUsersState> {
     } catch (err) {
       state.copyWith(
         status: SearchStatus.error,
-        failure: Failure(message: 'Something went wrong, please try again'),
+        failure:
+            const Failure(message: 'Something went wrong, please try again'),
       );
     }
   }

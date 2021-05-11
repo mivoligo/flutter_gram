@@ -22,7 +22,7 @@ class ProfileState extends Equatable {
   final Failure failure;
 
   factory ProfileState.initial() {
-    return ProfileState(
+    return const ProfileState(
       user: User.empty,
       posts: [],
       isCurrentUser: false,

@@ -12,7 +12,7 @@ class EditProfileState extends Equatable {
   });
 
   factory EditProfileState.initial() {
-    return EditProfileState(
+    return const EditProfileState(
       profileImage: null,
       username: '',
       bio: '',

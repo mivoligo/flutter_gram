@@ -7,7 +7,7 @@ class LikedPostsState extends Equatable {
   });
 
   factory LikedPostsState.initial() {
-    return LikedPostsState(likedPostIds: {}, recentlyLikedPostIds: {});
+    return const LikedPostsState(likedPostIds: {}, recentlyLikedPostIds: {});
   }
 
   final Set<String> likedPostIds;

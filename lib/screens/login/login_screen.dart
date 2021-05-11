@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   static Route route() {
     return PageRouteBuilder(
       settings: const RouteSettings(name: routeName),
-      transitionDuration: Duration(seconds: 0),
+      transitionDuration: const Duration(seconds: 0),
       pageBuilder: (context, _, __) => BlocProvider<LoginCubit>(
         create: (_) =>
             LoginCubit(authRepository: context.read<AuthRepository>()),
@@ -57,8 +57,8 @@ class LoginScreen extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
                                 'Fluttergram',
                                 textAlign: TextAlign.center,
@@ -69,7 +69,8 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ),
                             TextFormField(
-                              decoration: InputDecoration(hintText: 'Email'),
+                              decoration:
+                                  const InputDecoration(hintText: 'Email'),
                               keyboardType: TextInputType.emailAddress,
                               onChanged: (value) => context
                                   .read<LoginCubit>()
@@ -80,7 +81,8 @@ class LoginScreen extends StatelessWidget {
                                       : null,
                             ),
                             TextFormField(
-                              decoration: InputDecoration(hintText: 'Password'),
+                              decoration:
+                                  const InputDecoration(hintText: 'Password'),
                               obscureText: true,
                               onChanged: (value) => context
                                   .read<LoginCubit>()
@@ -95,14 +97,14 @@ class LoginScreen extends StatelessWidget {
                                 context,
                                 state.status == LoginStatus.submitting,
                               ),
-                              child: Text('Log in'),
+                              child: const Text('Log in'),
                             ),
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.of(context)
                                     .pushNamed(SignupScreen.routeName);
                               },
-                              child: Text('No account? Sign up'),
+                              child: const Text('No account? Sign up'),
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.grey[200],
                                 onPrimary: Colors.black,

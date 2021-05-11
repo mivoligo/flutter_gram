@@ -39,7 +39,7 @@ class ProfileButton extends StatelessWidget {
             ),
             child: Text(
               isFollowing ? 'Unfollow' : 'Follow',
-              style: TextStyle(fontSize: 16.0),
+              style: const TextStyle(fontSize: 16.0),
             ),
           );
   }

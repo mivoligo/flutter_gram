@@ -42,7 +42,7 @@ class PostView extends StatelessWidget {
                 Expanded(
                   child: Text(
                     post.author.username,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.w600,
                     ),

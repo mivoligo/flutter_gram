@@ -11,7 +11,7 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Notifications')),
+      appBar: AppBar(title: const Text('Notifications')),
       body: BlocBuilder<NotificationsBloc, NotificationsState>(
         builder: (context, state) {
           switch (state.status) {
@@ -26,7 +26,7 @@ class NotificationsScreen extends StatelessWidget {
             case NotificationStatus.error:
               return CenteredText(text: state.failure.message ?? 'Error');
             default:
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
           }
         },
       ),

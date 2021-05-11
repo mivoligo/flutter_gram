@@ -11,7 +11,7 @@ class NavScreen extends StatelessWidget {
   static Route route() {
     return PageRouteBuilder(
       settings: const RouteSettings(name: routeName),
-      transitionDuration: Duration(seconds: 0),
+      transitionDuration: const Duration(seconds: 0),
       pageBuilder: (_, __, ___) => BlocProvider<BottomNavBarCubit>(
         create: (context) => BottomNavBarCubit(),
         child: NavScreen(),

@@ -21,7 +21,7 @@ class AuthState extends Equatable {
   }
 
   factory AuthState.unauthenticated() {
-    return AuthState(
+    return const AuthState(
       status: AuthStatus.unauthenticated,
     );
   }

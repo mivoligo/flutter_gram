@@ -88,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   Widget _buildBody(ProfileState state) {
     switch (state.status) {
       case ProfileStatus.loading:
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       default:
         return RefreshIndicator(
           onRefresh: () async {
@@ -138,10 +138,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                   labelColor: Theme.of(context).primaryColor,
                   unselectedLabelColor: Colors.grey,
                   tabs: [
-                    Tab(
+                    const Tab(
                       icon: Icon(Icons.grid_on, size: 28.0),
                     ),
-                    Tab(
+                    const Tab(
                       icon: Icon(Icons.list, size: 28.0),
                     ),
                   ],
@@ -169,7 +169,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                         },
                         childCount: state.posts.length,
                       ),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         mainAxisSpacing: 2.0,
                         crossAxisSpacing: 2.0,
