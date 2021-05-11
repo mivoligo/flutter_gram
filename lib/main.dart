@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'blocs/blocs.dart';
 import 'config/custom_router.dart';
+import 'cubits/cubits.dart';
 import 'repositories/repositories.dart';
 import 'screens/screens.dart';
 
@@ -39,6 +40,12 @@ class MyApp extends StatelessWidget {
             create: (context) =>
                 AuthBloc(authRepository: context.read<AuthRepository>()),
           ),
+          BlocProvider<LikedPostsCubit>(
+            create: (context) => LikedPostsCubit(
+              postRepository: context.read<PostRepository>(),
+              authBloc: context.read<AuthBloc>(),
+            ),
+          )
         ],
         child: MaterialApp(
           title: 'Flutter Gram',

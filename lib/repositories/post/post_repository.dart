@@ -103,13 +103,13 @@ class PostRepository extends BasePostRepository {
   @override
   Future<Set<String>> getLikedPostIds({
     required String userId,
-    required List<Post> posts,
+    required List<Post?> posts,
   }) async {
     final postIds = <String>{};
     for (final post in posts) {
       final likeDoc = await _firebaseFirestore
           .collection(Paths.likes)
-          .doc(post.id)
+          .doc(post!.id)
           .collection(Paths.postLikes)
           .doc(userId)
           .get();

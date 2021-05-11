@@ -11,10 +11,14 @@ class PostView extends StatelessWidget {
   const PostView({
     required this.post,
     required this.isLiked,
+    required this.onLike,
+    this.recentlyLiked = false,
   });
 
   final Post post;
   final bool isLiked;
+  final VoidCallback onLike;
+  final bool recentlyLiked;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,7 @@ class PostView extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onDoubleTap: () {},
+          onDoubleTap: onLike,
           child: CachedNetworkImage(
             width: double.infinity,
             height: MediaQuery.of(context).size.height / 2,
@@ -59,7 +63,7 @@ class PostView extends StatelessWidget {
         Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: onLike,
               icon: isLiked
                   ? const Icon(
                       Icons.favorite,
@@ -79,7 +83,7 @@ class PostView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                '${post.likes} likes',
+                '${recentlyLiked ? post.likes + 1 : post.likes} likes',
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 4.0),
